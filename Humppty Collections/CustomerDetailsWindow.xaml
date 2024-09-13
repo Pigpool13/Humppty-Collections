@@ -1,0 +1,51 @@
+﻿<Window x:Class="Hummpty_Collections.CustomerDetailsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Customer Details" Height="560" Width="420">
+    <Grid>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+            <!-- Name -->
+            <TextBlock Text="Name:" VerticalAlignment="Center" Margin="0,0,0,5"/>
+            <TextBox x:Name="NameTextBox" Width="300" />
+
+            <TextBlock Text="Boat Make:" Margin="0, 10, 0, 5"/>
+            <TextBox x:Name="BoatMakeTextBox" Text="{Binding BoatMake}" Width="302" />
+
+            <TextBlock Text="Boat Model:" Margin="0, 10, 0, 5"/>
+            <TextBox x:Name="BoatModelTextBox" Text="{Binding BoatModel}" Width="305"/>
+
+            <!-- Email -->
+            <TextBlock Text="Email:" VerticalAlignment="Center" Margin="0,10,0,5"/>
+            <TextBox x:Name="EmailTextBox" Width="300" />
+
+            <!-- Phone -->
+            <TextBlock Text="Phone:" VerticalAlignment="Center" Margin="0,10,0,5"/>
+            <TextBox x:Name="PhoneTextBox" Width="300" />
+
+            <TextBlock Text="Boat Serial Number:" VerticalAlignment="Center" Margin="0,10,0,5"/>
+            <TextBox x:Name="BoatSerialNumberTextBox" Width="300" />
+
+            <!-- Barcode -->
+            <TextBlock Text="Barcode:" VerticalAlignment="Center" Margin="0,10,0,5"/>
+            <TextBox x:Name="BarcodeTextBox" Width="300" KeyDown="BarcodeTextBox_KeyDown"/>
+
+            <!-- Barcode List -->
+            <TextBlock Text="Scanned Barcodes:" VerticalAlignment="Center" Margin="0,10,0,5"/>
+            <ListBox x:Name="BarcodeListBox"
+         HorizontalAlignment="Left"
+         Width="200"
+         Height="106"
+         Margin="10,10,0,15">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Code}"/>
+                        <!-- Bind to the Code property of Barcode -->
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <Button x:Name="SaveCustomerButton" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Margin="10,495,0,0" Click="SaveCustomerButton_Click"/>
+    </Grid>
+
+</Window>
